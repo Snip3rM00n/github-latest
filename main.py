@@ -2,7 +2,7 @@ import sys
 
 import requests
 
-# Use Like python githubber.py JASchilz
+# Use Like python githubber.py Snip3rM00n
 # (or another user name)
 
 if __name__ == "__main__":
