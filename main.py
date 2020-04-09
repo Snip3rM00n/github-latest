@@ -1,5 +1,4 @@
 import sys
-import json
 
 import requests
 
@@ -8,13 +7,11 @@ import requests
 
 if __name__ == "__main__":
     username = sys.argv[1]
+    response = requests.get(f"https://api.github.com/users/{username}/events")
 
-    # TODO:
-    #
-    # 1. Retrieve a list of "events" associated with the given user name
-    # 2. Print out the time stamp associated with the first event in that list.
-
-    print("COMPLETE THE TODOs")
-    
-
+    if response.status_code == 200:
+        content = response.json()
+        print(content[0]["created_at"])
+    else:
+        print(f"{response.status_code} - {response.json()['message']}")
 
